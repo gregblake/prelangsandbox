@@ -1,0 +1,22 @@
+<div class="form">
+  <%= simple_form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-error">
+          The form contains <%= pluralize(@post.errors.count, "error") %>.
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+
+    <%= f.input :title  %>
+    <%= f.input :body  %>
+
+    <%= f.submit :class => 'btn btn-primary' %>
+
+  <% end %>
+</div>
